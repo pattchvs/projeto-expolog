@@ -134,7 +134,7 @@
                             <option value="Clinico Geral">Clinico Geral</option>
                             <option value="Outro">Outro</option>
                     </select>
-                    <label for="drugs">DESCREVA UM POUCO DE COMO VOCÊ ESTÁ SE SENTINDO:</label>
+                    <label for="drugs">VOCÊ TEM TOMADO ALGUM REMÉDIO RECENTEMENTE:</label>
                     <input type="text" name="drugs" id="drugs">
 
                 </div>
@@ -147,7 +147,7 @@
                             <option value=2>Médio</option>
                             <option value=3>Urgente</option>
                     </select>
-                    <label for="hasExhaustion">DESCREVA UM POUCO DE COMO VOCÊ ESTÁ SE SENTINDO:</label>
+                    <label for="hasExhaustion">VOCÊ TEM SENTIDO EXAUSTÃO ULTIMAMENTE?:</label>
                     <input type="text" name="hasExhaustion" id="hasExhaustion">
     
                 </div>
