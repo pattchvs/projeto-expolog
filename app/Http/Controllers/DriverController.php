@@ -23,11 +23,7 @@ class DriverController extends Controller
         dd($driver);
         return view('newexam', ['driver' => $driver]);
     }
-    public function destroy($id)
-    {
-        Driver::findOrFail($id)->delete();
-        return redirect('/dashboard');
-    }
+    
 
     public function store(Request $request)
     {

@@ -60,7 +60,7 @@
             }
             #user-info{
                 justify-content: left;
-                display: grid;
+                display: block;
                 border: 1px solid blue;
                 width: 100%;
                 padding-left: 1rem
@@ -80,22 +80,29 @@
                     <div id="bloco-externo">
                         <div id="user"><img src="profile.png" class="img-icon" alt=""></div>
                         <div id="user-info">
-                            <h3>{{$driver->name}}</h3>
-                            <h3>{{$driver->id}}</h3>
+                            <h2>{{$driver->name}}</h2>
+                            <div id="registros">
+                                <h3>Registro: {{$driver->id}}</h3>
+                                
+                                @foreach ($driver->exams as $exam)
+                                @if ($exam->urgency == 1)
+                                <h3>Situação Leve</h3>
+                                @endif
+                                @if($exam->urgency == 2)
+                                <h3>Situação Moderada</h3>
+                                @endif
+                                @if($exam->urgency == 3)
+                                <h3>Situação Grave</h3>
+                                @endif
+                                @endforeach 
+                              
+                            </div>
+                            
                         </div>
-                        <div id="user-status"><img src="profile.png" class="img-icon" alt=""></div>
+                        <div id="user-status"><img src="exclamacao.png" class="img-icon" alt=""></div>
                     </div>
-                    {{-- <p>img</p>
-                    <h2>nome: {{$driver->name}}</h2>
-                    <h2>id: {{$driver->id}}</h2>
-                    <h2>placa: {{$driver->truck}}</h2>
 
-                    @foreach ($driver->exams as $exam)
-                    <h3>Alcoolizado</h3>
-                    <h3>Sem cinto</h3>
-                    <h3>Exagerado</h3>
-                    <h2>Inapto</h2>
-                    @endforeach --}}
+                    
                     
                 </li>   
                 @endforeach

@@ -9,4 +9,6 @@ class Exam extends Model
 {
     protected $table = 'exams';
     use HasFactory;
+
+    protected $lastExam = ['date'];
 }

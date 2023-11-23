@@ -5,104 +5,139 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Saferoad</title>
-
-        <!-- Fonts -->
+        <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
-        <!-- Styles -->
         <style>
-            /* Adicione seus estilos aqui, se necessário */
+            header{
+                display: flex;
+                padding: 2rem;
+
+               
+            }
+            .logo{
+                width: 169px;
+                height: 87px;
+            }
+            .brand{
+                font-family: "poppins";
+                font-size: 40px;
+                color: #fafafa;
+                font-weight: bold;
+                align-items: center;
+                display: flex;
+            }
+            .img-icon{
+                max-width: 125px;
+                max-height: 125px;
+                border-radius: 75px;
+            }
+
             body {
                 font-family: 'Nunito', sans-serif;
                 background-color: #288c96;
+                height: 39rem;
+                background-image: url("bg.png");
+                background-size: cover;
+
             }
 
-            .hidden {
-                visibility: hidden;
+            #driver_id{
+                padding: 15px;
+                border-radius: 15px;
             }
-            #main{
-                display: grid;
+            main{
+                
                 align-items: center;
                 justify-content: center;
+                border: 1px solid #fff;
+                width: 100%;
+                height: 100%;
+                margin: 0 auto;
             }
+            #innerform{
+                display: flex;
+                width: 100%;
+                border: 1px solid #fafafa;
+                justify-content: space-around;
+            
+            }
+            #innerform input{
+                display: block;
+                margin-bottom: 10px;
+                padding: 20px;
+                width: 500px;
+                border-radius: 25px;
+                border: none;
+            }
+
+            #innerform select{
+                display: block;
+                margin-bottom: 10px;
+                padding: 16px;
+                width: 540px;
+                border-radius: 25px;
+                border: none;
+                text-align: center;
+                font-size: 20px;
+            }
+            #innerform label{
+                color: #fafafa;
+                font-weight: bold;
+                padding-left: 1rem
+            }
+
         </style>
     </head>
-    <body class="antialiased">
-        <div id="main">
-            <h1>Bem vindo, por favor selecione seu nome para iniciar:</h1>
-        <form method="POST" action="/newexam" id="examForm">
+    <body>
+        <header>
+            <img class="logo" src="logo.png" alt="">
+            <a class="brand">Saferoad</a>
+        </header>
+        <form action="/exams" method="POST">
             @csrf
-            <select name="driver_id">
-                @foreach ($drivers as $driver)
-                    <option value={{$driver->id}}>{{$driver->name}}</option>
-                @endforeach
-            </select>
-        
-            <!-- Pergunta 1 -->
-            <div id="question1" class="hidden">
-                <label for="drunk_driving">Você anda dirigindo alcoolizado?</label>
-                <input type="radio" name="drunk_driving" value="sim"> Sim
-                <input type="radio" name="drunk_driving" value="nao"> Não
+            <div id="innerform">
+                <div id="sec-a">
+                    
+                    <label for="driver_id">SELECIONE O SEU NOME:</label>
+                    <select id="driver_id" name="driver_id">
+                        @foreach ($drivers as $driver)
+                            <option value={{$driver->id}}>{{$driver->name}}</option>
+                        @endforeach
+                    </select>
+                    <label for="weeklyReport">DESCREVA UM POUCO DE COMO VOCÊ ESTÁ SE SENTINDO:</label>
+                    <input type="text" id="weeklyReport" name="weeklyReport">
+                    <label for="especiality">SELECIONE UMA ESPECIALIDADE QUE POSSA TE AUXILIAR:</label>
+                    <select id="especiality" name="especiality">
+                            <option value="Psicólogo">Psicólogo</option>
+                            <option value="Oftamologista">Oftamologista</option>
+                            <option value="Dentista">Dentista</option>
+                            <option value="Clinico Geral">Clinico Geral</option>
+                            <option value="Outro">Outro</option>
+                    </select>
+                    <label for="drugs">DESCREVA UM POUCO DE COMO VOCÊ ESTÁ SE SENTINDO:</label>
+                    <input type="text" name="drugs" id="drugs">
+
+                </div>
+                <div id="sec-b">
+                    <label for="lastExam">QUANDO FOI SEU ÚLTIMO EXAME PERIÓDICO?</label>
+                    <input type="date" id="lastExam" name="lastExam">
+                    <label for="urgency">O QUÃO GRAVE VOCÊ CONSIDERA A SUA SITUAÇÃO?</label>
+                    <select id="urgency" name="urgency">
+                            <option value=1>Leve</option>
+                            <option value=2>Médio</option>
+                            <option value=3>Urgente</option>
+                    </select>
+                    <label for="hasExhaustion">DESCREVA UM POUCO DE COMO VOCÊ ESTÁ SE SENTINDO:</label>
+                    <input type="text" name="hasExhaustion" id="hasExhaustion">
+    
+                </div>
+
             </div>
-        
-            <!-- Pergunta 2 -->
-            <div id="question2" class="hidden">
-                <label for="continue">Deseja continuar?</label>
-                <input type="radio" name="continue" value="sim"> Sim
-                <input type="radio" name="continue" value="nao"> Não
-            </div>
-        
-            <button type="button" onclick="showNextQuestion()">Continuar</button>
-            <button type="submit" id="submitButton" class="hidden">Enviar</button>
+            <input type="submit" value="Enviar">
         </form>
-        </div>
-        
-
-        <script>
-            function showNextQuestion() {
-                var form = document.getElementById("examForm");
-                var driverSelect = form.querySelector("select");
-                var question1 = form.querySelector("#question1");
-                var question2 = form.querySelector("#question2");
-                var submitButton = form.querySelector("#submitButton");
-
-                // Esconde o seletor de nome
-                driverSelect.classList.add("hidden");
-
-                // Pergunta sobre dirigir alcoolizado
-                question1.classList.remove("hidden");
-
-                // Adiciona a resposta ao formulário
-                var drunkDrivingAnswer = form.querySelector("input[name='drunk_driving']:checked");
-                if (drunkDrivingAnswer) {
-                    var input = document.createElement("input");
-                    input.type = "hidden";
-                    input.name = "drunk_driving";
-                    input.value = drunkDrivingAnswer.value;
-                    form.appendChild(input);
-                }
-
-                // Esconde o botão de continuar
-                form.querySelector("button").classList.add("hidden");
-
-                // Quando a pergunta sobre dirigir alcoolizado for respondida
-                form.querySelector("input[name='drunk_driving']").onchange = function () {
-                    // Esconde a pergunta
-                    question1.classList.add("hidden");
-
-                    // Pergunta sobre continuar
-                    question2.classList.remove("hidden");
-                };
-
-                // Quando a pergunta sobre continuar for respondida
-                form.querySelector("input[name='continue']").onchange = function () {
-                    // Esconde a pergunta
-                    question2.classList.add("hidden");
-
-                    // Exibe o botão de enviar
-                    submitButton.classList.remove("hidden");
-                };
-            }
-        </script>
     </body>
 </html>

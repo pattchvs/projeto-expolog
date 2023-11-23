@@ -17,11 +17,14 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->integer('driver_id');
-            $table->string('dailyReport');
-            $table->integer('timeWorked');
-            $table->boolean('isDrunk');
-            $table->boolean('canWork');
+            $table->string('weeklyReport');
+            $table->string('especiality');
+            $table->string('drugs');
+            $table->date('lastExam');
+            $table->integer('urgency');
+            $table->string('hasExhaustion');
             $table->date('exam_date')->nullable();
+            $table->integer('workTime');
         });
     }
 
