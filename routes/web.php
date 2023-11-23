@@ -16,3 +16,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[DriverController::class, 'index'] );
 Route::get('/driver',[DriverController::class,'driver'] );
+Route::post('/newexam', [DriverController::class, 'store'])->name('store.newexam');
+Route::get('/newexam/{driverId}', [DriverController::class, 'newExam'])->name('newexam');

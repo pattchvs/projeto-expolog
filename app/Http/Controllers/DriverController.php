@@ -17,6 +17,12 @@ class DriverController extends Controller
         $drivers = Driver::all();
         return view('driver', ['drivers'=> $drivers]);
     }
+
+    public function newExam($driverId){
+        $driver = Driver::findOrFail($driverId);
+        dd($driver);
+        return view('newexam', ['driver' => $driver]);
+    }
     public function destroy($id)
     {
         Driver::findOrFail($id)->delete();
