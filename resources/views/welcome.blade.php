@@ -143,6 +143,7 @@
                             </div>
                             
                         </div>
+                        
                         <div id="user-status"><img src="exclamacao.png" class="img-icon" alt=""></div>
                     </div>
 
