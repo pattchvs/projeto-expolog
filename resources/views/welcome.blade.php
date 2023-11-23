@@ -92,6 +92,12 @@
                 padding: 10px;
                 border-radius: 10px;
             }
+            .etiqueta-vermelha{
+                background-color: rgb(255, 0, 0);
+                color: #fafafa;
+                padding: 10px;
+                border-radius: 10px;
+            }
             
         </style>
     </head>
@@ -115,9 +121,13 @@
                                         @if ($exam->workTime < 8)
                                             <h3 class="etiqueta-verde">{{$exam->workTime}} Horas</h3>
                                         @endif
-                                        @if($exam->workTime >=8 || $exam->worktime <12)
+                                        @if($exam->workTime >7 && $exam->workTime <12)
                                             <h3 class="etiqueta-amarela">{{$exam->workTime}} Horas</h3>
                                         
+                                        @endif
+                                        @if ($exam->workTime >12)
+                                            <h3 class="etiqueta-vermelha">{{$exam->workTime}} Horas</h3>
+                                            
                                         @endif
                                         @if ($exam->urgency == 1)
                                         <h3 class="etiqueta-azul">Situação Leve</h3>
@@ -126,7 +136,7 @@
                                         <h3 class="etiqueta-amarela">Situação Moderada</h3>
                                         @endif
                                         @if($exam->urgency == 3)
-                                        <h3 class="vermelha">Situação Grave</h3>
+                                        <h3 class="etiqueta-vermelha">Situação Grave</h3>
                                         @endif
                                         @endforeach
                                     </div>

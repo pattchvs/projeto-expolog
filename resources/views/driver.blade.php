@@ -53,7 +53,7 @@
                 
                 align-items: center;
                 justify-content: center;
-                border: 1px solid #fff;
+
                 width: 100%;
                 height: 100%;
                 margin: 0 auto;
@@ -61,7 +61,7 @@
             #innerform{
                 display: flex;
                 width: 100%;
-                border: 1px solid #fafafa;
+
                 justify-content: space-around;
             
             }
@@ -88,6 +88,22 @@
                 color: #fafafa;
                 font-weight: bold;
                 padding-left: 1rem
+            }
+            #submit{
+                padding: 20px;
+                width: 250px;
+                margin-top: 20px;
+                
+            }
+
+
+            form{
+                display: flex;
+                flex-direction: column; /* Alinhe os elementos verticalmente */
+                align-items: center; /* Centralize os elementos na direção transversal */
+                justify-content: center; /* Centralize os elementos na direção principal */
+
+                margin: 2rem; /* Adicione margem para espaçamento */
             }
 
         </style>
@@ -137,7 +153,7 @@
                 </div>
 
             </div>
-            <input type="submit" value="Enviar">
+            <input type="submit" id="submit" value="Enviar">
         </form>
     </body>
 </html>
