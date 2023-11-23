@@ -46,6 +46,7 @@
             .img-icon{
                 max-width: 125px;
                 max-height: 125px;
+
                 border-radius: 75px;
             }
             #bloco-externo{
@@ -53,6 +54,7 @@
                 justify-content: space-between;
                 background-color: #fafafa;
                 margin: 2rem 3rem;
+                align-items: center;
                 margin-right: 6rem;
                 padding:1rem;
                 border-radius: 20px;
@@ -61,11 +63,36 @@
             #user-info{
                 justify-content: left;
                 display: block;
-                border: 1px solid blue;
+            
                 width: 100%;
                 padding-left: 1rem
                 
             }
+            #etiquetas{
+                display: flex;
+                gap: 1rem;
+            }
+
+            
+            .etiqueta-amarela{
+                background-color: yellow;
+                color: #fafafa;
+                padding: 10px;
+                border-radius: 10px;
+            }
+            .etiqueta-verde{
+                background-color: rgb(21, 255, 0);
+                color: #fafafa;
+                padding: 10px;
+                border-radius: 10px;
+            }
+            .etiqueta-azul{
+                background-color: rgb(0, 162, 255);
+                color: #fafafa;
+                padding: 10px;
+                border-radius: 10px;
+            }
+            
         </style>
     </head>
     <header>
@@ -83,19 +110,26 @@
                             <h2>{{$driver->name}}</h2>
                             <div id="registros">
                                 <h3>Registro: {{$driver->id}}</h3>
-                                
-                                @foreach ($driver->exams as $exam)
-                                @if ($exam->urgency == 1)
-                                <h3>Situação Leve</h3>
-                                @endif
-                                @if($exam->urgency == 2)
-                                <h3>Situação Moderada</h3>
-                                @endif
-                                @if($exam->urgency == 3)
-                                <h3>Situação Grave</h3>
-                                @endif
-                                @endforeach 
-                              
+                                    <div id="etiquetas">
+                                        @foreach ($driver->exams as $exam)
+                                        @if ($exam->workTime < 8)
+                                            <h3 class="etiqueta-verde">{{$exam->workTime}} Horas</h3>
+                                        @endif
+                                        @if($exam->workTime >=8 || $exam->worktime <12)
+                                            <h3 class="etiqueta-amarela">{{$exam->workTime}} Horas</h3>
+                                        
+                                        @endif
+                                        @if ($exam->urgency == 1)
+                                        <h3 class="etiqueta-azul">Situação Leve</h3>
+                                        @endif
+                                        @if($exam->urgency == 2)
+                                        <h3 class="etiqueta-amarela">Situação Moderada</h3>
+                                        @endif
+                                        @if($exam->urgency == 3)
+                                        <h3 class="vermelha">Situação Grave</h3>
+                                        @endif
+                                        @endforeach
+                                    </div>
                             </div>
                             
                         </div>
