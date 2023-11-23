@@ -21,24 +21,16 @@
         </style>
     </head>
     <body class="antialiased">
-        <h1>Teste</h1>
-        <div>
-            <ul>
+        <h1>Bem vindo, por favor selecione seu nome para iniciar:</h1>
+        <form action="">
+            <select id="cars" name="cars">
                 @foreach ($drivers as $driver)
-                 <li>
-                    <h2>id: {{$driver->id}}</h2>
-                    <h2>nome: {{$driver->name}}</h2>
-                    <h2>placa: {{$driver->truck}}</h2>
-
-                    @foreach ($driver->exams as $exam)
-                    <h2>{{$exam->dailyReport}}</h2>
-                    @endforeach
-                    
-                </li>   
+                <option value={{$driver->id}}>{{$driver->name}}</option>
                 @endforeach
-                
-            </ul>
-        </div>
+            </select>
+            <button type="submit">Continuar</button>
+        </form>
+        
         
     </body>
 </html>

@@ -15,3 +15,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/',[DriverController::class, 'index'] );
+Route::get('/driver',[DriverController::class,'driver'] );
