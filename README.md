@@ -35,10 +35,15 @@ php artisan key:generate
 # Dados do banco
 
 DB_CONNECTION=mysql
+
 DB_HOST=127.0.0.1
+
 DB_PORT=3306
+
 DB_DATABASE=saferoad
+
 DB_USERNAME=root
+
 DB_PASSWORD=
 
 ## -------------------------------------------------------
@@ -54,7 +59,7 @@ php artisan serve
 
 ## Uso
 
-1. Start the application following the steps of [instalation](#installation)
+1. Inicie a aplicação seguindo os passos de [instalação](#instalação)
 2. O aplicativo vai ficar acessivel em http://localhost:8000 para a visão da empresa e http://localhost:8000/driver para a visão do motorista.
 
 
