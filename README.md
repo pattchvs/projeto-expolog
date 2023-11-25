@@ -1,9 +1,13 @@
-# Laravel Studies
-Esse repositório contém um protótipo da ideia Saferoad desenvolvida na EXPOLOG Hack 2023
+# Saferoad
+Esse repositório contém um protótipo da ideia Saferoad, projeto campeão de Logistica desenvolvido durante a EXPOLOG Hack 2023
+
+
+
 ## Conteúdos
 
 - [Instalação](#instalação)
 - [Uso](#uso)
+- [Equipe](#equipe)
 
 ## Instalação
 
@@ -68,3 +72,12 @@ Esse projeto usa MySQL de database. As migrations necessarias são realizadas us
 
 Para [instalar MySQL](https://www.apachefriends.org/pt_br/download.html) você pode usar esse link.
 
+## Equipe
+#### Eric Patrick Chaves
+[LinkedIn](https://www.linkedin.com/in/pattchvs/)
+#### Danilo Sampaio
+[LinkedIn](https://www.linkedin.com/in/danilo-sampaio-877011260)
+#### Tatiana Amorim
+[LinkedIn](https://www.linkedin.com/in/tatianaroamorim/)
+#### Mateus Belúsio
+[LinkedIn](https://www.linkedin.com/in/mateusbelúsio/)
